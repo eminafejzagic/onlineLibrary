@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="bs" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista autora</title>
+    <link rel="stylesheet" th:href="@{/style/library.css}">
+</head>
+<body>
+
+<h1 class="library-header">Lista autora</h1>
+
+<a href="/autori" class="btn">Svi autori</a>
+<a href="/knjige" class="btn">Knjige</a>
+
+<div class="book-card">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Godina rođenja</th>
+            <th>Knjige</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="autor : ${autori}">
+            <td th:text="${autor.id}"></td>
+            <td th:text="${autor.ime}"></td>
+            <td th:text="${autor.prezime}"></td>
+            <td th:text="${autor.godinaRodjenja}"></td>
+            <td>
+                <a th:href="@{/knjige(autorId=${autor.id})}" class="btn">Prikaži knjige</a>  <!-- paziti na sintaksu linka -->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="bs" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista knjiga</title>
+    <link rel="stylesheet" th:href="@{/style/library.css}">
+</head>
+<body>
+
+<h1 class="library-header">Lista knjiga</h1>
+
+<a href="/autori" class="btn">Autori</a>
+<a href="/knjige" class="btn">Sve knjige</a>
+
+<div class="book-card">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Naslov</th>
+            <th>Žanr</th>
+            <th>Godina izdavanja</th>
+            <th>Autor</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="knjiga : ${knjige}">
+            <td th:text="${knjiga.id}"></td>
+            <td th:text="${knjiga.naslov}"></td>
+            <td th:text="${knjiga.zanr}"></td>
+            <td th:text="${knjiga.godinaIzdanja}"></td>
+            <td th:text="${knjiga.autor.ime + ' ' + knjiga.autor.prezime}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
