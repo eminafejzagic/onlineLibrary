@@ -1,12 +1,27 @@
 package com.example.onlinelibrary.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "knjiga")
 public class Knjiga {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String naslov;
     private String zanr;
     private int godinaIzdanja;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "autor_id")
     private Autor autor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "autor_id")
+    private Clan clan;
+
+    public Knjiga(){}
 
     public Knjiga(Long id, String naslov, String zanr, int godinaIzdanja, Autor autor) {
         this.id = id;
@@ -62,5 +77,12 @@ public class Knjiga {
         this.autor = autor;
     }
 
+    public Clan getClan() {
+        return clan;
+    }
+
+    public void setClan(Clan clan) {
+        this.clan = clan;
+    }
 }
 
