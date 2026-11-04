@@ -1,13 +1,20 @@
 package com.example.onlinelibrary.model;
 
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
+@Table(name = "autori")
 public class Autor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String ime;
     private String prezime;
     private int godinaRodjenja;
+
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
 
     private List<Knjiga> knjige = new ArrayList<>();
 
