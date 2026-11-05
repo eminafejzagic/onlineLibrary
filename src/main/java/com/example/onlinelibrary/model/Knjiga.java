@@ -18,7 +18,7 @@ public class Knjiga {
     private Autor autor;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "autor_id")
+    @JoinColumn(name = "clan_id") //paziti na mapiranje
     private Clan clan;
 
     public Knjiga(){}
