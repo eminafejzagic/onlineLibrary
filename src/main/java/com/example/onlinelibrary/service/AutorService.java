@@ -3,9 +3,10 @@ package com.example.onlinelibrary.service;
 import com.example.onlinelibrary.model.Autor;
 import com.example.onlinelibrary.repository.AutorRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class AutorService{
     private final AutorRepository repo;
 
